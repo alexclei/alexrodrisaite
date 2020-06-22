@@ -19,6 +19,8 @@ class CreatePostsTable extends Migration
             $table->string('titulo');
             $table->string('subtitulo');
             $table->text('descricao');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');            
             $table->timestamps();
         });
     }
