@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('menu-blog-class', 'menu-active')
+@section('menu-blog-class', 'menu-has-children menu-active')
 
 @section('conteudo')
     <!--==========================

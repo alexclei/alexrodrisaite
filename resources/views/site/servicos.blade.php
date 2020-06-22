@@ -1,6 +1,19 @@
 @extends('layout')
 
-@section('menu-servicos-class', 'menu-active')
+@section('menu-servicos-class', 'menu-has-children menu-active')
+@section('menu-servicos-links')
+<ul>
+    <li><a href="#">Hospedagem cPanel</a></li>
+    <li><a href="#">SEO</a></li>
+    <li><a href="#">Inbound Marketing</a></li>
+    <li><a href="#">Criação de Site</a></li>
+    <li><a href="#">Social Media</a></li>
+    <li><a href="#">Produção de Conteúdo</a></li>
+    <li><a href="#">Videos</a></li>
+    <li><a href="#">Email Marketing</a></li>
+    <li><a href="#">Anúncios Patrocinados</a></li>
+</ul>
+@stop
 
 @section('conteudo')
     <!--==========================
@@ -14,11 +27,19 @@
                 <p>Apresentamos aqui uma lista de serviços que disponibilizamos para você.</p>
             </div>
             <div class="row">
+                
                 <div class="col-lg-6">
                     <div class="box wow fadeInLeft">
                     <div class="icon"><i class="fa fa-file-code-o"></i></div>
                     <h4 class="title"><a href="">Criamos Sites</a></h4>
                     <p class="description">Ser encontrado na internet é essencial. Pensar na criação de sites não é olhar para o futuro, mas para o agora.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="box wow fadeInLeft">
+                    <div class="icon"><i class="fa fa-server"></i></div>
+                    <h4 class="title"><a href="">Hospedagem cPanel</a></h4>
+                    <p class="description">Um site precisa ser hospedado, uma hospedagem de qualidade faz toda a diferença.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">

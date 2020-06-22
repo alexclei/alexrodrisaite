@@ -63,7 +63,7 @@
 		<section id="topbar" class="d-none d-lg-block">
 			<div class="container clearfix">
 				<div class="contact-info float-left">
-					<i class="fa fa-envelope-o"></i> <a href="mailto:alexcleitonweb@gmail.com">alexcleitonweb@gmail.com</a>
+					<i class="fa fa-envelope-o"></i> <a href="mailto:suporte@alexrodri.com.br">suporte@alexrodri.com.br</a>
 					<i class="fa fa-phone"></i> +55 96 98405-8000
 				</div>
 				<div class="social-links float-right">
@@ -94,27 +94,12 @@
 						<li class="@yield('menu-home-class')">
 							<a href="{{ url('/') }}">Home</a>
 						</li>
-						<li class="menu-has-children @yield('menu-sobre-class')">
+						<li class="@yield('menu-sobre-class')">
 							<a href="{{ route('sobre') }}">Sobre</a>
 						</li>
-						<li class="menu-has-children @yield('menu-servicos-class')">
+						<li class="@yield('menu-servicos-class')">
 							<a href="{{ route('servico') }}">Serviços</a>
-							<ul>
-								<li><a href="#">SEO</a></li>
-								<li><a href="#">Inbound Marketing</a></li>
-								<li class="menu-has-children"><a href="#">Criação de Site</a>
-									<ul>
-										<li><a href="#"></a></li>
-										<li><a href="#">Videos</a></li>
-										<li><a href="#">Podcasts</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Social Media</a></li>
-								<li><a href="#">Produção de Conteúdo</a></li>
-								<li><a href="#">Videos</a></li>
-								<li><a href="#">Email Marketing</a></li>
-								<li><a href="#">Anúncios Patrocinados</a></li>
-							</ul>
+							@yield('menu-servicos-links')
 						</li>
 						<li class="@yield('menu-portfolio-class')">
 							<a href="{{ route('portfolio') }}">Portfólio</a>
@@ -122,17 +107,12 @@
 						<li class="@yield('menu-team-class')">
 							{{-- <a href="{{ route('equipe') }}">Equipe</a> --}}
 						</li>
-						<li class="menu-has-children @yield('menu-blog-class')">
+						<li class="@yield('menu-blog-class')">
 							<a href="{{ route('blog') }}">Blog</a>
-							{{-- <ul>
-								<li><a href="#">Artigos</a></li>
-								<li><a href="#">Videos</a></li>
-								<li><a href="#">Podcasts</a></li>
-							</ul> --}}
 						</li>
-						@section('menu-contato')
-							<li><a href="{{ route('contato') }}">Contatos</a></li>
-						@show
+						<li class="@yield('menu-contato-class')">
+							<a href="{{ route('contato') }}">Contatos</a>
+						</li>
 					</ul>
 				</nav><!-- #nav-menu-container -->
 			</div>
@@ -197,7 +177,7 @@
 								<br>
 								+55 96 98405 8000
 								<br>
-								alexcleitonweb@gmail.com
+								suporte@alexrodri.com.br
 							</p>
 						</div>
 					</div>

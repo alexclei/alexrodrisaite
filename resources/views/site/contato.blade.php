@@ -1,8 +1,6 @@
 @extends('layout')
 
-@section('menu-contato')
-    <li class="menu-active"><a href="{{ route('contato') }}">Contatos</a></li>
-@stop
+@section('menu-contato-class', 'menu-active')
 
 @section('conteudo')
     <!--==========================
@@ -12,7 +10,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Contatos</h2>
-                <p></p>
+                <p>Entrem em contato conosco para ter mais informações.</p>
             </div>
             <div class="row contact-info">
                 <div class="col-md-4">
@@ -33,7 +31,7 @@
                     <div class="contact-email">
                         <i class="ion-ios-email-outline"></i>
                         <h3>Email</h3>
-                        <p><a href="mailto:alexcleitonweb@gmail.com">alexcleitonweb@gmail.com</a></p>
+                        <p><a href="mailto:suporte@alexrodri.com.br">suporte@alexrodri.com.br</a></p>
                     </div>
                 </div>
             </div>
