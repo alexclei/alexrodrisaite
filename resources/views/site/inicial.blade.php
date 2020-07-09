@@ -10,7 +10,7 @@
 		<div class="intro-content">
 			<h2>Criamos <span>seu site</span><br> Profissional!</h2>
 			<div>
-				<a href="#about" class="btn-get-started scrollto">Começar</a>
+				<a href="#about" class="btn-get-started scrollto">Orçamento</a>
 				<a href="{{ route('portfolio') }}" class="btn-projects scrollto">Projetos</a>
 			</div>
 		</div>
