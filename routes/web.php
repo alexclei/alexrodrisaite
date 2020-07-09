@@ -26,3 +26,16 @@ Route::namespace('Site')->group( function(){
 });
 
 Route::get('/updatesitemap','SitemapController@sitemap')->name('sitemap');
+Auth::routes();
+
+Route::namespace('Admin')->group(function () {
+    Route::name('admin.')->group(function () {
+        Route::get('/painel', 'HomeController@index')->name('home');
+        Route::prefix('painel')->group(function () {
+            Route::resource('portfolio', 'PortfolioController');
+            // Route::resource('portfolio', 'PortfolioController');
+            // Route::resource('post', 'PortfolioController');
+            // Route::resource('banner', 'PortfolioController');
+        });
+    });
+});

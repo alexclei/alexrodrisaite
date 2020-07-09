@@ -38,7 +38,11 @@
         </div>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Portfólio</div>
+                <div class="card-header">
+                    Portfólio | 
+                    <a href="{{ route('admin.portfolio.create') }}"><i class="fa fa-plus"></i></a> | 
+                    <a href="{{ route('admin.portfolio.index') }}"><i class="fa fa-bars"></i></a>
+                </div>
 
                 <div class="card-body">
                     <div class="table-responsive">
@@ -56,8 +60,16 @@
                                     <td>Site AlexRodri</td>
                                     <td>3567</td>
                                     <td class="text-right">
-                                        <a class="btn btn-success" href="#"><i class="fa fa-edit"></i></a>
-                                        <a class="btn btn-danger" href="#"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-success" href="{{ route('admin.portfolio.edit',1) }}"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-danger"  href="{{ route('admin.portfolio.destroy',1) }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('delete-form-1').submit();">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                        <form id="delete-form-1" action="{{ route('admin.portfolio.destroy',1) }}" method="post" style="display: none;">
+                                            @csrf
+                                            {{ method_field('DELETE') }}
+                                        </form>
                                     </td>
                                 </tr>
                             </tbody>
