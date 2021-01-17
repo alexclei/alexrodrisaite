@@ -1,6 +1,8 @@
-@extends('layout')
+@extends('layouts.layout')
 
 @section('menu-contato-class', 'menu-active')
+
+@section('title', 'Contatos | ')
 
 @section('conteudo')
     <!--==========================
@@ -9,7 +11,7 @@
     <section id="contact" class="wow fadeInUp">
         <div class="container">
             <div class="section-header">
-                <h2>Contatos</h2>
+                <h1>Contatos</h1>
                 <p>Entrem em contato conosco para ter mais informações.</p>
             </div>
             <div class="row contact-info">
@@ -41,28 +43,65 @@
         </div>
         <div class="container">
             <div class="form">
-                <form action="" method="post" role="form" class="contactForm">
+                <form action="{{ route('enviarcontato') }}" method="post" class="contactForm">
+                    @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                            <div class="validation"></div>
+                            <input type="text" value="{{ old('nome') }}" name="nome" class="form-control @error('nome') is-invalid @enderror" id="name" placeholder="Seu Nome">
+                            @error('nome')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                            <div class="validation"></div>
+                            <input type="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="Seu Email">
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" value="{{ old('conheceu') }}" name="conheceu" class="form-control @error('conheceu') is-invalid @enderror" id="name" placeholder="Como nos conheceu?">
+                            @error('conheceu')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" value="{{ old('telefone') }}" class="form-control @error('telefone') is-invalid @enderror" name="telefone" id="telefone" placeholder="Seu Numero">
+                            @error('telefone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                        <div class="validation"></div>
+                        <input type="text" value="{{ old('assunto') }}" class="form-control @error('assunto') is-invalid @enderror" name="assunto" id="assunto" placeholder="Assunto">
+                        @error('assunto')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                        <div class="validation"></div>
+                        <textarea class="form-control @error('mensagem') is-invalid @enderror" name="mensagem" rows="5" placeholder="Mensagem">{{ old('mensagem') }}</textarea>
+                        @error('mensagem')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
-                    <div class="text-center"><button type="submit">Send Message</button></div>
+                    <div class="text-center"><button type="submit">Enviar</button></div>
                 </form>
             </div>
+            <br>
+            <p>Mande sua mensagem de dúvida, agradecimento, reclamação, recomendação que nós leremos. Com seu email, voce ficará informado(a) sobre nossas novidades!</p>
         </div>
     </section><!-- #contact -->
 @stop

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.layout')
 
 @section('menu-sobre-class', 'menu-active')
 
@@ -26,30 +26,74 @@
 	</section><!-- #intro -->
 @stop --}}
 
+@section('title', 'Sobre | ')
+
 @section('conteudo')
     <!--==========================
 		About Section
 	============================-->
 	<section id="about" class="wow fadeInUp">
 		<div class="container">
+			<div class="section-header">
+				<h1>Sobre</h1>
+				<p>Somos motivados por resultados!</p>
+            </div>
 			<div class="row">
-				<div class="col-lg-6 about-img">
+				<div class="col-lg-7 content">
+					<h3>"É nesse mundo conectado e dinâmizado que a AlexRodri Digital atua"</h3>
+					<p>Os consumidores, cada vez melhores informados, querem envolvimento e relacionamento de verdade com as marcas, empresas e instituições com as quais se relacionam.</p>
+					<p>Nosso quadro de colaboradores apresenta profissionais capacitados e qualificados para suprir as necessidades de comunicação digital da sua empresa.</p>
+					<ul>
+						<li><i class="ion-android-checkmark-circle"></i> Web Designers</li>
+						<li><i class="ion-android-checkmark-circle"></i> Programadores</li>
+						<li><i class="ion-android-checkmark-circle"></i> Designers Gráficos</li>
+						<li><i class="ion-android-checkmark-circle"></i> Publicitários</li>
+						<li><i class="ion-android-checkmark-circle"></i> Gestores de Marketing Digital</li>
+						<li><i class="ion-android-checkmark-circle"></i> Profissionais das áreas Comercial</li>
+						<li><i class="ion-android-checkmark-circle"></i> Administrativa</li>
+						<li><i class="ion-android-checkmark-circle"></i> Criação de sites</li>
+					</ul>
+				</div>
+				<div class="col-lg-5 about-img">
 					<img src="img/about-img.jpg" alt="">
 				</div>
-
-				<div class="col-lg-6 content">
-					<h2>Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
-					<h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
-
-					<ul>
-						<li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-						<li><i class="ion-android-checkmark-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-						<li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-					</ul>
-
-				</div>
 			</div>
-
 		</div>
 	</section><!-- #about -->
+	
+	<!--==========================
+	Clients Section
+	============================-->
+	<section id="clients" class="wow fadeInUp">
+		<div class="container">
+			<div class="section-header">
+				<h2>Diferencial</h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-3">
+					VISÃO INOVADORA
+				</div>
+				<div class="col-lg-3">
+					EXPERIÊNCIA
+				</div>
+				<div class="col-lg-3">
+					IMERSÃO TOTAL NO NEGÓCIO
+				</div>
+				<div class="col-lg-3">
+					CRIATIVIDADE & INTELIGÊNCIA
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<div class="section-header">
+				<h2>Clientes</h2>
+				<p>Principais marcas parceiras da empresa.</p>
+			</div>
+			<div class="owl-carousel clients-carousel">
+				<img src="{{ asset('img/clients/cliente1-imperio-das-damas.png') }}" alt="imperio-das-damas">
+				<img src="{{ asset('img/clients/cliente2-mateus-materiais-de-construcao.png') }}" alt="mateus-materiais-de-construcao">
+			</div>
+		</div>
+	</section><!-- #clients -->
 @stop

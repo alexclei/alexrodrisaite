@@ -51,7 +51,7 @@
 		<link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 		<link href="{{ asset('lib/magnific-popup/magnific-popup.css') }}" rel="stylesheet">
 		<link href="{{ asset('lib/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
-
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 		<!-- Main Stylesheet File -->
 		<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 	
@@ -84,13 +84,33 @@
 			<div class="container">
 
 				<div id="logo" class="pull-left">
-					<h1><a href="{{ url('/') }}" class="scrollto">Alex<span>Rodri</span> Digital</a></h1>
+					<h2><a href="{{ url('/') }}" class="scrollto">Alex<span>Rodri</span> Digital</a></h2>
 					<!-- Uncomment below if you prefer to use an image logo -->
 					<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
 				</div>
 
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
+						<li>
+							<a href="{{ route('admin.home') }}">Painel</a>
+						</li>
+						<li>
+							<a href="{{ route('admin.home') }}">Post</a>
+						</li>
+						<li class="menu-has-children">
+							<a href="{{ route('admin.portfolio.index') }}">Portfilio</a>
+							<ul>
+								<li>
+									<a href="{{ route('admin.portfolio.index') }}">Ver Portfilio</a>
+								</li>
+								<li>
+									<a href="{{ route('admin.portfolio.create') }}">Criar Portfilio</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="{{ route('admin.home') }}">Mensagem</a>
+						</li>
 						@guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -220,9 +240,17 @@
 		<script src="{{ asset('lib/magnific-popup/magnific-popup.min.js') }}"></script>
 		<script src="{{ asset('lib/sticky/sticky.js') }}"></script>
 		<script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
-
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+		<script src="https://cdn.datatables.net/plug-ins/1.10.21/dataRender/datetime.js"></script>
+		
 		<!-- Template Main Javascript File -->
 		<script src="{{ asset('js/main.js') }}"></script>
+
+		<script src="{{ asset('js/app.js') }}"></script>
+		
+		@yield('js')
+
 		<script data-ad-client="ca-pub-2850804355745380" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->

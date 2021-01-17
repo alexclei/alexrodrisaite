@@ -1,6 +1,8 @@
-@extends('layout')
+@extends('layouts.layout')
 
 @section('menu-home-class', 'menu-active')
+
+@section('title', 'Comece o site dos seus sonhos! | ')
 
 @section('banner')
     <!--==========================
@@ -8,9 +10,9 @@
 	============================-->
 	<section id="intro">
 		<div class="intro-content">
-			<h2>Criamos <span>seu site</span><br> Profissional!</h2>
+			<h1>Comece o <span>site</span><br> dos seus sonhos!</h1>
 			<div>
-				<a href="#about" class="btn-get-started scrollto">Orçamento</a>
+				<a href="{{ route('servicoshow',[1, 'comprar-meu-site']) }}" class="btn-get-started scrollto">Compre já o seu SITE</a>
 				<a href="{{ route('portfolio') }}" class="btn-projects scrollto">Projetos</a>
 			</div>
 		</div>
@@ -38,18 +40,65 @@
 				</div>
 
 				<div class="col-lg-6 content">
-					<h2>Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
-					<h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
-
-					<ul>
-						<li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-						<li><i class="ion-android-checkmark-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-						<li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-					</ul>
-
+					<h3>Agencia de Marketing Digital, especializada em criação de sites, inbound marketing, SEO, mídia online e gestão de redes sociais.</h3>
+					<h2>Atraia mais clientes pela web, com a AlexRodri Digital</h2>
+					<p><i class="ion-android-checkmark-circle"></i> A AlexRodri Digital é uma agência que acredita que os meios de comunicação tradicional tem um alto valor para investimento que poder ser melhor direcionado. Num mundo conectado, onde os consumidores são agentes ativos, o modelo de interrupção e de monólogo da mídia de massa já não é tão eficiente.</p>
 				</div>
 			</div>
 
 		</div>
 	</section><!-- #about -->
+
+	<!--==========================
+        Services Section
+    ============================-->
+
+    <section id="services" class="wow fadeInUp">
+        <div class="container">
+            <div class="section-header">
+                <h2>Novidades</h2>
+                <p>Acompanhe nossos postes.</p>
+            </div>
+            <div class="row grid">
+                <div class="col-lg-6 grid-sizer"></div>
+                @foreach ($post as $p)
+                    <div class="col-lg-6 grid-item">
+                        <div class="box wow fadeInLeft">
+                            <div class="icon"><i class="{{ $p->icon }}"></i></div>
+                            <h2 class="title"><a href="{{ Route('post', [$p->id,Str::slug($p->titulo)]) }}">{{ $p->titulo }}</a></h2>
+                            <p class="description">{!! mb_strimwidth($p->descricao, 0, 150, "...") !!}</p>
+                            <br>
+                            <p>{{ date('d/m/Y - H:i:s',strtotime($p->created_at)) }}</p>
+                        </div>
+                    </div>
+                @endforeach
+                
+            </div>
+        </div>
+	</section><!-- #services -->
+
+	<!--==========================
+        Services Section
+    ============================-->
+
+    <section id="services" class="wow fadeInUp">
+        <div class="container">
+            <div class="section-header">
+                <h1>Serviços</h1>
+                <p>Apresentamos aqui uma lista de serviços que disponibilizamos para você.</p>
+            </div>
+            <div class="row grid">
+                <div class="col-lg-6 grid-sizer"></div>
+                @foreach ($servicos as $s)
+                <div class="col-lg-6 grid-item">
+                    <div class="box wow fadeInLeft">
+                        <div class="icon"><i class="{{ $s->icon }}"></i></div>
+                        <h2 class="title"><a href="{{ route('servicoshow',[$s->id, Str::slug($s->titulo)]) }}">{{ $s->titulo }}</a></h2>
+                        <p class="description">{{ $s->resumo }}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section><!-- #services -->
 @stop
