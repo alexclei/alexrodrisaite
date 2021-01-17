@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTable extends Migration
+class CreateServicosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,21 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('servicos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('status')->default(1);
             $table->string('icon');
-            $table->string('imagem');
-            $table->text('tag');
-            $table->string('alt');
             $table->string('titulo');
-            $table->string('subtitulo');
-            $table->text('descricao');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('resumo');
+            $table->string('alt');
+            $table->string('imagem');
+            $table->longText('codigo');
+            $table->string('tag');
+            $table->string('plano1');
+            $table->string('plano2');
+            $table->string('plano3');
+            $table->string('plano4');
+            $table->string('views');
             $table->timestamps();
         });
     }
@@ -36,6 +39,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('servicos');
     }
 }
