@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Contato;
+use App\Model\Portfolio;
+use App\Model\Post;
+use App\Model\Servico;
 
 class HomeController extends Controller
 {
@@ -24,6 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('site.admin.home');
+        $portfolio = Portfolio::orderBy('created_at', 'desc')->paginate(5);
+        $servico = Servico::orderBy('created_at', 'desc')->paginate(5);
+        $post = Post::orderBy('created_at', 'desc')->paginate(5);
+        $contato = Contato::orderBy('status', 'asc')->paginate(5);
+        return view('site.admin.home', compact('post','portfolio','contato','servico'));
     }
 }
