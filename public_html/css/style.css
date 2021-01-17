@@ -41,7 +41,7 @@ h4,
 h5,
 h6 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   margin: 0 0 20px 0;
   padding: 0;
 }
@@ -70,6 +70,20 @@ h6 {
 .back-to-top:hover {
   background: #0c2e8a;
   color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Custom Style
+--------------------------------------------------------------*/
+
+.invalid-feedback {
+  display: block;
+}
+
+.btn-45off {
+  color: #fff;
+  background-color: #0c2e8a;
+  border-color: #1a40a8;
 }
 
 /*--------------------------------------------------------------
@@ -132,7 +146,7 @@ h6 {
   box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.06);
 }
 
-#header #logo h1 {
+#header #logo h2 {
   font-size: 42px;
   margin: 0;
   padding: 0;
@@ -141,13 +155,13 @@ h6 {
   font-weight: 700;
 }
 
-#header #logo h1 a {
+#header #logo h2 a {
   color: #0c2e8a;
   line-height: 1;
   display: inline-block;
 }
 
-#header #logo h1 a span {
+#header #logo h2 a span {
   color: #50d8af;
 }
 
@@ -195,16 +209,16 @@ h6 {
   text-align: center;
 }
 
-#intro .intro-content h2 {
+#intro .intro-content h1 {
   color: #0c2e8a;
   margin-bottom: 30px;
   font-size: 64px;
   font-weight: 700;
 }
 
-#intro .intro-content h2 span {
+#intro .intro-content h1 span {
   color: #50d8af;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 #intro .intro-content .btn-get-started,
@@ -508,7 +522,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 30px;
 }
 
-.section-header h2 {
+.section-header h1, #clients .section-header h2 {
   font-size: 32px;
   color: #0c2e8a;
   text-transform: uppercase;
@@ -517,7 +531,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding-bottom: 20px;
 }
 
-.section-header h2::before {
+.section-header h1::before, #clients .section-header h2::before {
   content: '';
   position: absolute;
   display: block;
@@ -537,7 +551,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------*/
 
 #about {
-  padding: 60px 0 30px 0;
+  padding: 30px 0 30px 0;
 }
 
 #about .about-img {
@@ -630,14 +644,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   -webkit-text-fill-color: transparent;
 }
 
-#services .box h4 {
+#services .box h2 {
   margin-left: 100px;
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 22px;
 }
 
-#services .box h4 a {
+#services .box h2 a {
   color: #444;
 }
 
@@ -1040,24 +1054,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #555;
 }
 
-#footer .credits a {
+#footer a {
   color: #0c2e8a;
-}
-
-/*--------------------------------------------------------------
-# Remove Branding
---------------------------------------------------------------*/
-
-img[alt="www.000webhost.com"]{
-  display:none!important;
-}
-
-/*--------------------------------------------------------------
-# Masonry
---------------------------------------------------------------*/
-
-.grid-item {
-  width: 160px;
 }
 
 @media (min-width: 768px) {
@@ -1104,7 +1102,7 @@ img[alt="www.000webhost.com"]{
     height: 74px;
   }
 
-  #header #logo h1 {
+  #header #logo h2{
     font-size: 34px;
   }
 
@@ -1131,7 +1129,7 @@ img[alt="www.000webhost.com"]{
 }
 
 @media (max-width: 767px) {
-  #intro .intro-content h2 {
+  #intro .intro-content h1 {
     font-size: 34px;
   }
 
@@ -1145,7 +1143,7 @@ img[alt="www.000webhost.com"]{
     padding-bottom: 15px;
   }
 
-  #services .box h4,
+  #services .box h2,
   #services .box p {
     margin-left: 0;
     text-align: center;
