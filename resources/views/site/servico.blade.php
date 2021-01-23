@@ -44,7 +44,9 @@ Services Section
             <h2>{{ $servico->resumo }}</h2>
         </div>
         <div class="row">
-            {!! $servico->codigo !!}
+            <div class="col-12">
+                {!! $servico->codigo !!}
+            </div>
             <div class="col-12">
                 <div class="row justify-content-center">
                     @if ($servico->plano1 != '#')
