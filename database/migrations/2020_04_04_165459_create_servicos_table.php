@@ -23,10 +23,6 @@ class CreateServicosTable extends Migration
             $table->string('imagem');
             $table->longText('codigo');
             $table->string('tag');
-            $table->string('plano1');
-            $table->string('plano2');
-            $table->string('plano3');
-            $table->string('plano4');
             $table->string('views');
             $table->timestamps();
         });
