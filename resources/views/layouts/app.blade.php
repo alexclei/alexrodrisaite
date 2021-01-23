@@ -91,39 +91,43 @@
 
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
-						<li>
-							<a href="{{ route('admin.home') }}">Painel</a>
-						</li>
-						<li>
-							<a href="{{ route('admin.home') }}">Post</a>
-						</li>
-						<li class="menu-has-children">
-							<a href="{{ route('admin.portfolio.index') }}">Portfilio</a>
-							<ul>
-								<li>
-									<a href="{{ route('admin.portfolio.index') }}">Ver Portfilio</a>
-								</li>
-								<li>
-									<a href="{{ route('admin.portfolio.create') }}">Criar Portfilio</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="{{ route('admin.home') }}">Mensagem</a>
-						</li>
 						@guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+						<li class="nav-item">
+							<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+						</li>
+						@if (Route::has('register'))
+						<li class="nav-item">
+							<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+						</li>
+						@endif
                         @else
-                            <li class="menu-has-children"><a href="#">Usuário</a>
+							<li>
+								<a href="{{ route('admin.home') }}">Painel</a>
+							</li>
+							<li>
+								<a href="{{ route('admin.home') }}">Meus serviços</a>
+							</li>
+							@can('admin')
+							<li>
+								<a href="{{ route('admin.home') }}">Post</a>
+							</li>
+							<li>
+								<a href="{{ route('admin.home') }}">Mensagem</a>
+							</li>
+							<li class="menu-has-children">
+								<a href="{{ route('admin.portfolio.index') }}">Portfilio</a>
+								<ul>
+									<li>
+										<a href="{{ route('admin.portfolio.index') }}">Ver Portfilio</a>
+									</li>
+									<li>
+										<a href="{{ route('admin.portfolio.create') }}">Criar Portfilio</a>
+									</li>
+								</ul>
+							</li>
+							@endcan
+							<li class="menu-has-children"><a href="#">{{ Auth::user()->name }}</a>
                                 <ul>
-                                    <li><a href="#">{{ Auth::user()->name }}</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -136,10 +140,12 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endguest
+						@endguest
+						@can('admin')
                         <li>
 							<a href="{{ url('/') }}">Ver Site</a>
                         </li>
+						@endcan
 					</ul>
 				</nav><!-- #nav-menu-container -->
             </div>
