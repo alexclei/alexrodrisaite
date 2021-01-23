@@ -146,7 +146,11 @@
 						</li>
 						@auth
 						<li class="@yield('menu-contato-class')">
-							<a href="{{ route('admin.home') }}">Admin</a>
+							<a href="{{ route('admin.home') }}">Painel</a>
+						</li>
+						@else
+						<li class="@yield('menu-contato-class')">
+							<a href="{{ route('admin.home') }}">Area do Cliente</a>
 						</li>
 						@endauth
 					</ul>
