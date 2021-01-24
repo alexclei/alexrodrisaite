@@ -55,7 +55,7 @@
 					</ul>
 				</div>
 				<div class="col-lg-5 about-img">
-					<img src="img/about-img.jpg" alt="">
+					<img src="{{ asset('img/sobre/sobretexto.svg') }}" alt="">
 				</div>
 			</div>
 		</div>
@@ -71,16 +71,32 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-3">
-					VISÃO INOVADORA
+					<p class="text-center">
+						VISÃO INOVADORA
+						<br>
+						<img src="{{ asset('img/sobre/inovacao.svg') }}" width="150px" alt="">
+					</p>
 				</div>
 				<div class="col-lg-3">
-					EXPERIÊNCIA
+					<p class="text-center">
+						EXPERIÊNCIA
+						<br>
+						<img src="{{ asset('img/sobre/experiencia.svg') }}" width="150px" alt="">
+					</p>
 				</div>
 				<div class="col-lg-3">
-					IMERSÃO TOTAL NO NEGÓCIO
+					<p class="text-center">
+						IMERSÃO TOTAL NO NEGÓCIO
+						<br>
+						<img src="{{ asset('img/sobre/imersao.svg') }}" width="150px" alt="">
+					</p>
 				</div>
 				<div class="col-lg-3">
-					CRIATIVIDADE & INTELIGÊNCIA
+					<p class="text-center">
+						CRIATIVIDADE & INTELIGÊNCIA
+						<br>
+						<img src="{{ asset('img/sobre/inteligencia.svg') }}" width="150px" alt="">
+					</p>
 				</div>
 			</div>
 			<br>
@@ -96,4 +112,29 @@
 			</div>
 		</div>
 	</section><!-- #clients -->
+
+	<!--==========================
+        Services Section
+    ============================-->
+
+    <section id="services" class="wow fadeInUp">
+        <div class="container">
+            <div class="section-header">
+                <h2>O que nós fazemos?</h2>
+                <p>Apresentamos aqui uma lista de serviços que disponibilizamos para você.</p>
+            </div>
+            <div class="row grid">
+                <div class="col-lg-6 grid-sizer"></div>
+                @foreach ($servicos as $s)
+                <div class="col-lg-6 grid-item">
+                    <div class="box wow fadeInLeft">
+                        <div class="icon"><i class="{{ $s->icon }}"></i></div>
+                        <h2 class="title"><a href="{{ route('servicoshow',[$s->id, Str::slug($s->titulo)]) }}">{{ $s->titulo }}</a></h2>
+                        <p class="description">{{ $s->resumo }}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section><!-- #services -->
 @stop

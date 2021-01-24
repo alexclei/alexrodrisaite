@@ -2,7 +2,7 @@
 
 @section('menu-home-class', 'menu-active')
 
-@section('title', 'Comece o site dos seus sonhos! | ')
+@section('title', 'Alcance os melhores resultados! | ')
 
 @section('banner')
     <!--==========================
@@ -10,9 +10,9 @@
 	============================-->
 	<section id="intro">
 		<div class="intro-content">
-			<h1>Comece o <span>site</span><br> dos seus sonhos!</h1>
+			<h1>Alcance os <span>melhores</span><br> resultados!</h1>
 			<div>
-				<a href="{{ route('servicoshow',[1, 'comprar-meu-site']) }}" class="btn-get-started scrollto">Compre já o seu SITE</a>
+				<a href="#" class="btn-get-started scrollto">Fale com um especialista</a>
 				<a href="{{ route('portfolio') }}" class="btn-projects scrollto">Projetos</a>
 			</div>
 		</div>

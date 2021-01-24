@@ -84,7 +84,7 @@
 			<div class="container clearfix">
 				<div class="contact-info float-left">
 					<i class="fa fa-envelope-o"></i> <a href="mailto:suporte@alexrodri.com.br">suporte@alexrodri.com.br</a>
-					<i class="fa fa-phone"></i> <a href="https://api.whatsapp.com/send?phone=5596984058000">+55 96 98405-8000</a>
+					<i class="fa fa-whatsapp"></i> <a href="https://api.whatsapp.com/send?phone=5596984058000">+55 96 98405-8000</a>
 				</div>
 				<div class="social-links float-right">
 					<a href="https://twitter.com/alexrodridev" class="twitter"><i class="fa fa-twitter"></i></a>
