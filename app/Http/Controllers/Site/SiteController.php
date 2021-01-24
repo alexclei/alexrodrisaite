@@ -113,6 +113,7 @@ class SiteController extends Controller
     public function sobre(){
         $fs = $this->fs;
         $fp = $this->fp;
-        return view('site.sobre', compact('fp', 'fs'));
+        $servicos = Servico::where('status',1)->paginate(4);
+        return view('site.sobre', compact('fp', 'fs', 'servicos'));
     }
 }

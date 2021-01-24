@@ -8,6 +8,7 @@ use App\Model\Contato;
 use App\Model\Portfolio;
 use App\Model\Post;
 use App\Model\Servico;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -28,10 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $countUsers = User::count();
         $portfolio = Portfolio::orderBy('created_at', 'desc')->paginate(5);
         $servico = Servico::orderBy('created_at', 'desc')->paginate(5);
         $post = Post::orderBy('created_at', 'desc')->paginate(5);
         $contato = Contato::orderBy('status', 'asc')->paginate(5);
-        return view('site.admin.home', compact('post','portfolio','contato','servico'));
+        return view('site.admin.home', compact('countUsers','post','portfolio','contato','servico'));
     }
 }
