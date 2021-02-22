@@ -70,11 +70,11 @@ class SitemapGenerator extends Command
                 ->setPriority(0.7));
         $sitemap->add(Url::create('/servicos')
                 ->setLastModificationDate(Carbon::create(2020, 01, 01, 9, 0, 0, 'America/Belem'))
-                ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
                 ->setPriority(0.8));
         $sitemap->add(Url::create('/contato')
                 ->setLastModificationDate(Carbon::create(2020, 01, 01, 9, 0, 0, 'America/Belem'))
-                ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
                 ->setPriority(0.6));
         
         $posts = Post::select(['id', 'titulo', 'updated_at'])
