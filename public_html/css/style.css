@@ -522,7 +522,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 30px;
 }
 
-.section-header h1, #clients .section-header h2, #services .section-header h2 {
+.section-header h1, #clients .section-header h2, #services .section-header h2, #testimonials .section-header h2 {
   font-size: 32px;
   color: #0c2e8a;
   text-transform: uppercase;
@@ -531,7 +531,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding-bottom: 20px;
 }
 
-.section-header h1::before, #clients .section-header h2::before, #services .section-header h2::before {
+.section-header h1::before, #clients .section-header h2::before, #services .section-header h2::before, #testimonials .section-header h2::before {
   content: '';
   position: absolute;
   display: block;
