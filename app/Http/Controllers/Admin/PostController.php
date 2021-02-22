@@ -60,12 +60,11 @@ class PostController extends Controller
             'subtitulo' => 'required|max:255',
             'titulo' => 'required|max:255',
             'descricao' => 'required',
-
         ]);
         $img = Image::make($request->imagem);
-        $img->resize(800, 600);
-        $nome = date('YmdHis').'-post-'.Str::slug($request->titulo).'.png';
-        $path = public_path('storage/'.$nome);
+        $img->resize(800, 800);
+        $nome = date('YmdHis').'-post-'.Str::slug($request->titulo).'.jpg';
+        $path = 'storage/'.$nome;
         $img->save($path);
 
         $request = $request->all();

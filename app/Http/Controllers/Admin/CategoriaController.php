@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Model\Contato;
+use App\Model\Categoria;
 use Illuminate\Http\Request;
 
-class ContatoController extends Controller
+class CategoriaController extends Controller
 {
     /**
     * Create a new controller instance.
@@ -25,9 +25,8 @@ class ContatoController extends Controller
      */
     public function index()
     {
-        $contato = Contato::orderBy('created_at', 'desc')
-                            ->get();
-        return view('site.admin.contato.index', compact('contato'));
+        $categoria = Categoria::orderBy('created_at', 'desc')->paginate(20);
+        return view('site.admin.categoria.index', compact('categoria'));
     }
 
     /**
@@ -65,12 +64,13 @@ class ContatoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\Contato  $contato
+     * @param  \App\Model\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contato $contato)
+    public function edit($id)
     {
-        //
+        $categoria = Categoria::find($id);
+        return view('site.admin.categoria.edit', ['categoria' => $categoria]);
     }
 
     /**
@@ -80,9 +80,17 @@ class ContatoController extends Controller
      * @param  \App\Model\Contato  $contato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contato $contato)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'titulo' => 'required|max:255',
+            'class' => 'required|max:255',
+        ]);
+        $categoria = Categoria::where('id',$id)->update($request->except(['_token','_method']));
+        return redirect()->route('admin.categoria.edit', $id)->with([
+                                                                    'statusok' => 'Editado com sucesso!',
+                                                                    'status' => 'Agora o item "'.$categoria->titulo.'" do blog pode ser reeditado'
+                                                                ]);
     }
 
     /**

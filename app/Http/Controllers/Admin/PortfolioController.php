@@ -59,7 +59,7 @@ class PortfolioController extends Controller
             'alt' => 'required|max:255',
         ]);
         $img = Image::make($request->imagem);
-        $img->resize(800, 600);
+        $img->resize(800, 800);
         $nome = date('YmdHis').'-portfolio-'.Str::slug($request->titulo).'.png';
         $path = public_path('storage/'.$nome);
         $img->save($path);
@@ -103,7 +103,7 @@ class PortfolioController extends Controller
         if ($request->imagem) {          
             Storage::delete('public/'.$portfolio->imagem);
             $img = Image::make($request->imagem);
-            $img->resize(800, 600);
+            $img->resize(800, 800);
             $nome = date('YmdHis').'-portfolio-'.Str::slug($request->titulo).'.png';
             $path = public_path('storage/'.$nome);
             $img->save($path);

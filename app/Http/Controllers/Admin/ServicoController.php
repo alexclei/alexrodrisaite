@@ -59,10 +59,6 @@ class ServicoController extends Controller
             'alt' => 'required',
             'codigo' => 'required',
             'tag' => 'required|max:191',
-            'plano1' => 'required',
-            'plano2' => 'required',
-            'plano3' => 'required',
-            'plano4' => 'required',
         ]);
 
         $img = Image::make($request->imagem);
@@ -119,10 +115,6 @@ class ServicoController extends Controller
             'alt' => 'required',
             'codigo' => 'required',
             'tag' => 'required|max:191',
-            'plano1' => 'required',
-            'plano2' => 'required',
-            'plano3' => 'required',
-            'plano4' => 'required',
         ]);
         if ($request->imagem) {
             Storage::delete('public/'.$servico->imagem);

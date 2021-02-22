@@ -8,6 +8,7 @@ use App\Model\Contato;
 use App\Model\Portfolio;
 use App\Model\Post;
 use App\Model\Servico;
+use App\Model\Orcamento;
 use App\User;
 
 class HomeController extends Controller
@@ -30,10 +31,13 @@ class HomeController extends Controller
     public function index()
     {
         $countUsers = User::count();
+        $countOrcamentos = Orcamento::count();
+        $countContatos = Contato::count();
+        $totalInteracao = $countContatos + $countOrcamentos;
         $portfolio = Portfolio::orderBy('created_at', 'desc')->paginate(5);
         $servico = Servico::orderBy('created_at', 'desc')->paginate(5);
         $post = Post::orderBy('created_at', 'desc')->paginate(5);
         $contato = Contato::orderBy('status', 'asc')->paginate(5);
-        return view('site.admin.home', compact('countUsers','post','portfolio','contato','servico'));
+        return view('site.admin.home', compact('countUsers','countOrcamentos','countContatos','totalInteracao','post','portfolio','contato','servico'));
     }
 }
