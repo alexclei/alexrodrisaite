@@ -41,7 +41,7 @@
         <div class="container">
             <div class="section-header">
                 <h1>{{ $p->titulo }}</h1>
-                <h2>{{ $p->subtitulo }}</h2>
+                <h3>{{ $p->subtitulo }}</h3>
             </div>
             <div class="row">
                 <div class="col-lg-9">

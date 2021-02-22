@@ -44,20 +44,9 @@
                         <div class="form-group col-md-1">
                             <label for="status">Status</label>
                             <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
-                                @if (old('status') == '1')
-                                <option value="1">Ativo</option>
-                                @elseif (old('status') == '0')
-                                <option value="0">Oculto</option>
-                                @else
-                                @if ($p->status == '1')
-                                <option value="1">Ativo</option>
-                                @else
-                                <option value="0">Oculto</option>
-                                @endif
-                                @endif
                                 <option></option>
-                                <option value="1">Ativo</option>
-                                <option value="0">Oculto</option>
+                                <option @if (old('status') == '1' || $p->status == '1') selected @endif value="1">Ativo</option>
+                                <option @if (old('status') == '0' || $p->status == '0') selected @endif value="0">Oculto</option>
                             </select>
                             @error('status')
                             <span class="invalid-feedback" role="alert">

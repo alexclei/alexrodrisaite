@@ -4,7 +4,6 @@
 
 @section('title', 'Portfólio | ')
 
-
 @section('conteudo')
     <!--==========================
       Portfolio Section
@@ -25,10 +24,9 @@
                 <div class="row">
                     <div class="cta-btn-container text-center">
                         <a class="cta-btn align-middle" data-filter="*" href="#all">Todos</a>
-                        <a class="cta-btn align-middle" data-filter=".web" href="#web">Web</a>
-                        <a class="cta-btn align-middle" data-filter=".socialmedia" href="#socialmedia">Social Media</a>
-                        <a class="cta-btn align-middle" data-filter=".video" href="#video">Video</a>
-                        <a class="cta-btn align-middle" data-filter=".foto" href="#foto">Foto</a>
+                        @foreach ($categoria as $c)
+                        <a class="cta-btn align-middle" data-filter=".{{ $c->class }}" href="#{{ $c->class }}">{{ $c->titulo }}</a>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -36,7 +34,28 @@
 
         <div class="container-fluid">
             <div class="row no-gutters portfolio">
-                    
+                
+                <div class="col-lg-3 item col-md-4 item web">
+                    <div class="portfolio-item wow fadeInUp">
+                        <a href="{{ asset('img/portfolio/site_fatech.jpg') }}" class="portfolio-popup">
+                            <img src="{{ asset('img/portfolio/site_fatech.jpg') }}" alt="">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info"><h2 class="wow fadeInUp">Site FATECH</h2></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 item col-md-4 item socialmedia">
+                    <div class="portfolio-item wow fadeInUp">
+                        <a href="{{ asset('img/portfolio/quero_pizza.jpg') }}" class="portfolio-popup">
+                            <img src="{{ asset('img/portfolio/quero_pizza.jpg') }}" alt="">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info"><h2 class="wow fadeInUp">Quero Pizza</h2></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
                 @foreach ($portfolio as $i)
                 <div class="col-lg-3 item col-md-4 item {{ $i->categoria->class }}">
                     <div class="portfolio-item wow fadeInUp">
