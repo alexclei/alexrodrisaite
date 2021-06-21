@@ -12,6 +12,8 @@ use App\Model\Portfolio;
 use App\Model\Contato;
 use App\Model\Orcamento;
 use App\Model\Categoria;
+use Auth;
+
 class SiteController extends Controller
 {
 	/**
@@ -28,6 +30,7 @@ class SiteController extends Controller
 
 	public function __construct(){
 		$this->fp = DB::table('posts')
+						->where('status',1)
 						->inRandomOrder()
 						->limit(5)
 						->get();
@@ -66,8 +69,8 @@ class SiteController extends Controller
 		$requestAll['assunto'] = $requestAll['problema'];
 		unset($requestAll['problema']);
 		$requestAll['mensagem'] = $requestAll['descricao'];
+		$requestAll['user_id'] = Auth::user()->id;
 		unset($requestAll['descricao']);
-		
 		// dd($requestAll);
 		$contato = Orcamento::create($requestAll);
 		$fp = $this->fp;
@@ -86,7 +89,7 @@ class SiteController extends Controller
 		$fp = $this->fp;
 		$fs = $this->fs;
 		if ($servico->status != 1) {
-			abort(403);
+			abort(404);
 		}
 		return view('site.servico', ['servico' => $servico, 'fp' => $fp, 'fs' => $fs]);
 	}
@@ -94,7 +97,8 @@ class SiteController extends Controller
 	public function inicial(){
 		$fp = $this->fp;
 		$fs = $this->fs;
-		$post = Post::where('created_at', '!=', null)
+		$post = Post::where('status',1)
+							->where('created_at', '!=', null)
 							->orderBy('id', 'desc')
 							->paginate(4);
 		$servicos = Servico::where('status',1)->paginate(4);
@@ -128,7 +132,8 @@ class SiteController extends Controller
 	}
 
 	public function blog(){
-		$post = Post::where('created_at', '!=', null)
+		$post = Post::where('status',1)
+							->where('created_at', '!=', null)
 							->orderBy('id', 'desc')
 							->paginate(4);
 		$fp = $this->fp;
@@ -140,7 +145,7 @@ class SiteController extends Controller
 		$p = Post::findOrFail($id);
 		$fs = $this->fs;
 		$fp = $this->fp;
-		if ($name != Str::slug($p->titulo)) {
+		if ($p->status != 1 && $name != Str::slug($p->titulo)) {
 			abort(404);
 		}
 		return view('site.post', ['p' => $p, 'fp' => $fp, 'fs' => $fs]);

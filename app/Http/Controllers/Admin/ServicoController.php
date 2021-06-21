@@ -19,6 +19,7 @@ class ServicoController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('can:admin');
     }
 
     /**
@@ -58,7 +59,7 @@ class ServicoController extends Controller
             'imagem' => 'required',
             'alt' => 'required',
             'codigo' => 'required',
-            'tag' => 'required|max:191',
+            'tag' => 'required',
         ]);
 
         $img = Image::make($request->imagem);
@@ -114,7 +115,7 @@ class ServicoController extends Controller
             'resumo' => 'required|max:191',
             'alt' => 'required',
             'codigo' => 'required',
-            'tag' => 'required|max:191',
+            'tag' => 'required',
         ]);
         if ($request->imagem) {
             Storage::delete('public/'.$servico->imagem);

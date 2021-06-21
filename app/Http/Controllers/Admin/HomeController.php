@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Model\Contato;
 use App\Model\Portfolio;
@@ -38,6 +39,7 @@ class HomeController extends Controller
         $servico = Servico::orderBy('created_at', 'desc')->paginate(5);
         $post = Post::orderBy('created_at', 'desc')->paginate(5);
         $contato = Contato::orderBy('status', 'asc')->paginate(5);
-        return view('site.admin.home', compact('countUsers','countOrcamentos','countContatos','totalInteracao','post','portfolio','contato','servico'));
+        $myOrcamento = Orcamento::where('user_id',Auth::id())->get();
+        return view('site.admin.home', compact('myOrcamento','countUsers','countOrcamentos','countContatos','totalInteracao','post','portfolio','contato','servico'));
     }
 }
