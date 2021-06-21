@@ -12,6 +12,14 @@ class Orcamento extends Model
      * @var array
      */
     protected $fillable = [
-        'nome', 'status', 'email', 'conheceu', 'telefone', 'assunto', 'mensagem', 'resposta', 'servico_id',
+        'nome', 'status', 'email', 'conheceu', 'telefone', 'assunto', 'mensagem', 'resposta', 'servico_id', 'user_id',
     ];
+
+    /**
+     * Get the categoria record associated with the portfolio.
+     */
+    public function servico()
+    {
+        return $this->belongsTo('App\Model\Servico');
+    }
 }
