@@ -47,14 +47,12 @@
         <div class="col-12">
           {!! $servico->codigo !!}
         </div>
-        <div class="col-12">
-          <div class="row justify-content-center">
-            <div class="col-lg-3 text-center">
-              <a class="btn btn-45off text-white" href="{{ route('servico_orcamento')}}">
-                Peça já seu orçamento - {{ $servico->titulo }}
-							</a>
-            </div>
-          </div>
+        <div class="col-12 text-center">
+          <a class="btn btn-orc text-white" href="https://api.whatsapp.com/send?phone=5596984058000&text=Olá quero um orçamento de {{ $servico->titulo }}">Peça já seu orçamento pelo Whatsapp</a>
+          {{-- <br><br>
+        </div>
+        <div class="col-12 text-center">
+          <a class="btn btn-orc text-white" href="{{ route('servico_orcamento')}}">Peça já seu orçamento - {{ $servico->titulo }}</a> --}}
         </div>
         <div class="col-12">
           <div class="row justify-content-center">

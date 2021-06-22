@@ -39,26 +39,72 @@
 	</div>
 	<br>
 	@endcan
+	@can('cliente')
 	<div class="row justify-content-center">
 		<div class="col-md-12">
 			<div class="card">
-				<div class="card-header">Dashboard</div>
-
+				<div class="card-header">Meus Serviços</div>
 				<div class="card-body">
-					@if (session('status'))
-						<div class="alert alert-success" role="alert">
-							{{ session('status') }}
-						</div>
-					@endif
-
-					You are logged in!
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Titulo</th>
+									<th scope="col" colspan="2">Data do contrato</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach ($servico as $s)
+								<tr>
+									<th scope="row">{{ $s->id }}</th>
+									<td>{{ $s->titulo }}</td>
+									<td>{{ $s->updated_at }}</td>
+									<td class="text-right">
+										<a class="btn btn-success" href="{{ route('admin.servico.edit', $s->id) }}"><i class="fa fa-edit"></i></a>
+									</td>
+								</tr>
+								@endforeach
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">Meus Orçamentos</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Servico</th>
+									<th scope="col">Problema</th>
+									<th scope="col" colspan="2">Data do Pedido</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach ($myOrcamento as $o)
+								<tr>
+									<td>{{ $o->servico->titulo }}</td>
+									<td>{{ $o->assunto }}</td>
+									<td>{{ $o->updated_at }}</td>
+									<td class="text-right">
+										<a class="btn btn-success" href="{{ route('admin.servico.edit', $o->id) }}"><i class="fa fa-edit"></i></a>
+									</td>
+								</tr>
+								@endforeach
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	@can('cliente')
-		dfljsdlfsdflsdf
 	@endcan
+	@can('admin')
 	<br>
 	<div class="row justify-content-center">
 		<div class="col-md-12">
@@ -97,6 +143,8 @@
 			</div>
 		</div>
 	</div>
+	@endcan
+	@can('admin')
 	<br>
 	<div class="row justify-content-center">
 		<div class="col-md-6">
@@ -181,6 +229,8 @@
 			</div>
 		</div>
 	</div>
+	@endcan
+	@can('admin')
 	<br>
 	<div class="row justify-content-center">
 		<div class="col-md-6">
@@ -256,5 +306,6 @@
 			</div>
 		</div>
 	</div>
+	@endcan
 </div>
 @endsection

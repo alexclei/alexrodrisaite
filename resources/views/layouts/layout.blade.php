@@ -253,13 +253,6 @@
     </div>
   </footer><!-- #footer -->
 
-  @if (session('sitemap'))
-    <script>
-      console.log("{{ session('sitemap') }}")
-
-    </script>
-  @endif
-
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->
@@ -284,25 +277,7 @@
   <script src="{{ asset('js/main.js') }}"></script>
 
   @yield('js')
-  {{-- <script>
-    $(document).ready(function() {
-      bsCustomFileInput.init()
-    })
-
-    var $grid = $('.grid').masonry({
-      itemSelector: '.grid-item',
-      columnWidth: '.grid-sizer',
-      percentPosition: true,
-      transitionDuration: 0,
-    });
-
-    // layout Masonry after each image loads
-    $grid.imagesLoaded().progress(function() {
-      $grid.masonry('layout');
-    });
-
-  </script>
-  --}}
+   
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M42MGNZ" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>

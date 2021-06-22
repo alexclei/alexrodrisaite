@@ -24,6 +24,8 @@ class CreateOrcamentosTable extends Migration
             $table->text('resposta')->nullable();
             $table->unsignedBigInteger('servico_id');
             $table->foreign('servico_id')->references('id')->on('servicos')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

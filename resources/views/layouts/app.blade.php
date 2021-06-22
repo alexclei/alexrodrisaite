@@ -255,11 +255,11 @@
   <script src="{{ asset('lib/magnific-popup/magnific-popup.min.js') }}"></script>
   <script src="{{ asset('lib/sticky/sticky.js') }}"></script>
   <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
-  
+  {{-- <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script> --}}
+  <script type="text/javascript" src="{{ asset('lib/ckeditor/ckeditor.js') }}"></script>
+
   <!-- Template Main Javascript File -->
   <script src="{{ asset('js/main.js') }}"></script>
-
-  <script src="{{ asset('js/app.js') }}"></script>
 
   @yield('js')
 

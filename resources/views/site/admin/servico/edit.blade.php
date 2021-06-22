@@ -124,10 +124,10 @@
               <div class="form-group col-md-12">
                 <label for="codigo">Código</label>
                 @if (old('codigo'))
-                  <textarea name="codigo" id="codigo" rows="20"
+                  <textarea name="codigo" id="descricao" rows="20"
                     class="form-control @error('codigo') is-invalid @enderror">{{ old('codigo') }}</textarea>
                 @else
-                  <textarea name="codigo" id="codigo" rows="20"
+                  <textarea name="codigo" id="descricao" rows="20"
                     class="form-control @error('codigo') is-invalid @enderror">{{ $s->codigo }}</textarea>
                 @endif
                 @error('codigo')
@@ -150,24 +150,10 @@
 @section('js')
   <script>
     $(document).ready(function() {
-
-      ClassicEditor.create($('#descricao').get()[0])
-        //this or below part.
-        //to elobrate I have added more codes
-        // ClassicEditor.create( document.querySelector( '#descricao' ), {
-        //     toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
-        //     heading: {
-        //         options: [
-        //             { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-        //             { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-        //             { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
-        //         ]
-        //     }
-        // })
-        .catch(error => {
-          console.log(error);
-        });
+      CKEDITOR.replace('descricao');
+      CKEDITOR.config.htmlEncodeOutput = false;
+      CKEDITOR.config.entities = false;
+      CKEDITOR.config.basicEntities = false;
     });
-
   </script>
 @endsection
